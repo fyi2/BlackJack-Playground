@@ -2,6 +2,11 @@ package game1
 
 class Card(var value: Int, var suit: Int) {
 
+    init{
+        require(value in 1..13, {"Bad Face"})
+        require(suit in 1..4, {"Bad Suit"})
+    }
+
     val suitName: String
         get() {
             when (suit) {
@@ -24,8 +29,8 @@ class Card(var value: Int, var suit: Int) {
     val name:String get() = "$valueName of $suitName"
 
     val points:Int get() = when(value){
-        in 1..9-> value
+        in 2..9-> value
         in 10..13 -> 10
-        else -> 0
+        else -> 11
     }
 }
